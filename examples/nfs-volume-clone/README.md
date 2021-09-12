@@ -62,23 +62,24 @@ Once deployed, verify each of the created entities using kubectl:
 
     ```text
     NAME                                PROVISIONER        RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
-    zfssa-nfs-volume-clone-example-sc   zfssa-csi-driver   Delete          Immediate           false                  2m9s
+    zfssa-nfs-volume-clone-example-sc   zfssa-csi-driver   Delete          Immediate           false                  63s
     ```
+
 2. Display the volume
     The command `kubectl get pvc` should return something similar to this:
     ```text
-    NAME                           STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS       AGE
-    zfssa-nfs-volume-example-pvc   Bound    pvc-808d9bd7-cbb0-47a7-b400-b144248f1818   10Gi       RWX            zfssa-csi-nfs-sc   8s
+    NAME                           STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS                        AGE
+    zfssa-nfs-volume-example-pvc   Bound    pvc-c7ac4970-8ae1-4dc8-ba7f-0e37a35fb39d   50Gi       RWX            zfssa-nfs-volume-clone-example-sc   7s
     ```
 3. Display the pod mounting the volume
 
     The command `kubectl get pods` should now return something similar to this:
     ```text
-    NAME                             READY   STATUS    RESTARTS   AGE
-    pod/zfssa-csi-nodeplugin-lpts9   2/2     Running   0          25m
-    pod/zfssa-csi-nodeplugin-vdb44   2/2     Running   0          25m
-    pod/zfssa-csi-provisioner-0      2/2     Running   0          23m
-    pod/zfssa-nfs-volume-example-pod 1/1     Running   0          12s
+    NAME                           READY   STATUS    RESTARTS   AGE
+    zfssa-csi-nodeplugin-ph8qr     2/2     Running   0          8m32s
+    zfssa-csi-nodeplugin-wzgpq     2/2     Running   0          8m32s
+    zfssa-csi-provisioner-0        4/4     Running   0          8m32s
+    zfssa-nfs-volume-example-pod   1/1     Running   0          2m21s
     ```
 
 ## Write data to the volume
