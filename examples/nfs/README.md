@@ -71,9 +71,9 @@ Once deployed, verify each of the created entities using kubectl:
 Once the pod is deployed, for demo, start the following analytics in a worksheet on
 the Oracle ZFS Storage Appliance that is hosting the target filesystems:
 
-Exec into the pod and write some data to the block volume:
+Exec into the pod and write some data to the volume:
 ```yaml
-kubectl exec -it zfssa-nfs-example-pod -- /bin/sh
+kubectl exec -it zfssa-nfs-volume-clone-example-pod -- /bin/sh
 / # cd /mnt
 /mnt # ls
 /mnt # echo "hello world" > demo.txt
